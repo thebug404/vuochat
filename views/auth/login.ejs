@@ -1,0 +1,30 @@
+<%- include("../layouts/default-header.ejs"); %>
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-10 col-sm-10 col-md-7 col-lg-10">
+                <div class="card shadow border-0">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-lg-6 d-none d-lg-block">
+                                <img src="/images/banner-login.svg" alt="Vuochat login banner" class="w-100">
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <!-- Header form -->
+                                <%- include("../partials/header-form.ejs", {
+                                    title: "Inicia sesion",
+                                    subtitle: "Inicia sesion y accede a todos tus contactos.",
+                                    color: ""
+                                }) %>
+                                <!-- #End header form -->
+
+                                <!-- Form -->
+                                <%- include("../components/form-login.ejs"); %>
+                                <!-- #End form -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<%- include("../layouts/default-footer.ejs"); %>

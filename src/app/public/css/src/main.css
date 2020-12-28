@@ -1,0 +1,11 @@
+@import "../bootstrap/bootstrap.min.css";
+@import "./sidebar.css";
+
+.icons {
+     height: 35px;
+     width: 35px;
+}
+
+.bg-purple {
+     background: #7386D5;
+}

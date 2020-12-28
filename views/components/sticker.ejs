@@ -1,0 +1,20 @@
+<a id="<%= id %>" href="<%= url %>" class="text-decoration-none w-auto">
+     <span class="d-flex align-items-center">
+          <img
+               src="<%= picture %>"
+               width="50px"
+               height="50px"
+               style="object-fit: cover; border-radius: 50%;"
+          >
+          <p class="mx-2 m-0 p-0">
+               <span style="font-size: 18px;"><%= name %></span>
+               <% if (message) { %>
+                    <br>
+                    <span class="text-muted"><%= message.slice(0, 35) %></span>
+               <% } %>
+          </p>
+     </span>
+     <% if (id) { %>
+          <hr>
+     <% } %>
+</a>

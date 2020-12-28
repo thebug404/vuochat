@@ -1,0 +1,30 @@
+<%- include("../layouts/default-header.ejs"); %>
+    <div class="container py-3">
+        <div class="row justify-content-center">
+            <div class="col-11 col-md-7 col-lg-12 col-xl-11">
+                <div class="card shadow border-0">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-lg-6 d-none d-lg-block">
+                                <img src="/images/banner-register.svg" alt="Vuochat register" class="w-100">
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <!-- Header form -->
+                                <%- include("../partials/header-form.ejs", {
+                                    title: "Crea una cuenta",
+                                    subtitle: "Crea una cuenta y comunicate con el mundo.",
+                                    color: ""
+                                }) %>
+                                <!-- #End header form -->
+
+                                <!-- Form -->
+                                <%- include("../components/form-register"); %>
+                                <!-- #End form -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<%- include("../layouts/default-footer.ejs"); %>

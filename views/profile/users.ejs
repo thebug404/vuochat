@@ -1,0 +1,11 @@
+<%- include("../layouts/profile-header.ejs"); %>
+     <div class="container-fluid">
+          <div class="row">
+               <% for (let doc of users.docs) { %>
+                    <div class="col-12 col-sm-6 col-md-4 p-2">
+                         <%- include("../components/user-card.ejs", { doc }) %>
+                    </div>
+               <% } %>
+          </div>
+     </div>
+<%- include("../layouts/profile-footer.ejs"); %>

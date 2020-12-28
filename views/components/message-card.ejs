@@ -1,0 +1,12 @@
+<div class="col-12 py-2">
+     <div class="row <%= justify %>">
+          <div class="col-12 col-sm-8 col-md6 col-lg-4">
+               <div class="card border-0 shadow <%= color %>">
+                    <div class="card-body">
+                         <span><%= message.message.slice(0, 50) %></span>
+                    </div>
+               </div>
+               <small class="text-muted"><%= new Date(message.created_at) %></small>
+          </div>
+     </div>
+</div>

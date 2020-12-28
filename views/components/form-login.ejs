@@ -1,0 +1,34 @@
+<form action="/auth/login" method="POST" id="form-validate">
+    <div class="form-group py-2">
+        <label for="username">Nombre de usuario</label>
+        <input
+            class="form-control <%= message.field == 'username' ? 'is-invalid' : '' %> my-1"
+            autocomplete="off"
+            name="username"
+            id="username"
+            autofocus
+            required
+        >
+        <% if (message.field == "username") { %>
+            <small class="form-text invalid-feedback"><%= message.text %></small>
+        <% } else { %>
+            <small class="form-text text-muted">Escriba el nombre de usuario</small>
+        <% } %>
+    </div>
+    <div class="form-group py-2">
+        <label for="password">Contraseña</label>
+        <input
+            type="password"
+            class="form-control <%= message.field == 'password' ? 'is-invalid' : '' %> my-1"
+            name="password"
+            id="password"
+            required
+        >
+        <% if (message.field == "password") { %>
+            <small class="form-text invalid-feedback"><%= message.text %></small>
+        <% } else { %>
+            <small class="form-text text-muted">Escriba su contraseña.</small>
+        <% } %>
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Iniciar sesion</button>
+</form>

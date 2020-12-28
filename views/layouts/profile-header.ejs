@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="/icons/logo.svg" type="image/x-icon">
+    <title>Vuochat</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <input type="hidden" id="user_id" value="<%= user._id %>">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header d-flex">
+                <img
+                    src="<%= user.picture %>"
+                    alt="Profile <%= user.name %>"
+                    class="rounded"
+                    height="60px"
+                    width="60px"
+                    style="object-fit: cover;"
+                >
+                <div>
+                    <p class="mx-2 m-0 p-0">
+                        <strong><%= user.name %></strong>
+                    </p>
+                    <small class="mx-2"><%= user.username %></small>
+                </div>
+            </div>
+
+            <div class="nav-item px-3 py-4 text-decoration-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chat-square-text-fill" viewBox="0 0 16 16">
+                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.5a1 1 0 0 0-.8.4l-1.9 2.533a1 1 0 0 1-1.6 0L5.3 12.4a1 1 0 0 0-.8-.4H2a2 2 0 0 1-2-2V2zm3.5 1a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5z"/>
+                </svg>
+                <span class="ms-2">Conversaciones</span>
+            </div>
+            <ul id="panel-chats" class="navbar-nav p-2" style="overflow: auto;">
+                <%
+                
+                    for (let panel of panels) {
+                        const participate = panel.participates.find(participate => participate._id != `${ user._id }`);
+                        const message = panel.messages[0];
+                %>
+                    <a href="/profile/chat/<%= participate._id %>" id="<%= participate._id %>" class="navbar-item d-block w-100 text-decoration-none text-white">
+                        <div class="d-flex">
+                            <img src="<%= participate.picture %>" alt="<%= participate.name %>" width="50px" height="50px" class="rounded-circle" style="object-fit: cover;">
+                            <div class="mx-2">
+                                <p class="m-0 p-0">
+                                    <strong><%= participate.name %></strong>
+                                </p>
+                                <small><%= message.message %></small>
+                            </div>
+                        </div>
+                        <hr>
+                    </a>
+                <% } %>
+            </ul>
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+            <nav class="navbar navbar-expand-lg navbar-light bg-white mb-4 shadow-md">
+                <div class="container-fluid">
+                  <a class="btn p-0 me-3" id="sidebarCollapse" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-justify" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+                    </svg>
+                  </a>
+                  <% if (typeof partner !== "undefined") { %>
+                    <%- include("../components/sticker", {
+                        picture: partner.picture,
+                        name: partner.name,
+                        message: "",
+                        url: "",
+                        id: ""
+                    }) %>
+                <% } %>
+                    <button class="navbar-toggler bg-purple text-white border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-justify" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+                        </svg>
+                    </button>
+
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="/profile" class="nav-link active">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+                                    <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+                                </svg>
+                                <span class="ms-1">Inicio</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/profile/users" class="nav-link active">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people me-1" viewBox="0 0 16 16">
+                                    <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+                                </svg>
+                                <span>Usuarios</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/auth/logout" class="nav-link active">Cerrar sesion</a>
+                        </li>
+                    </ul>
+                  </div>
+                </div>
+           </nav>
