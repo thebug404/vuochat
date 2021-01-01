@@ -1,9 +1,6 @@
 // Import module
 import passport from "passport";
 
-// Import user interface
-import { IUserMongo } from "../../../repository/user/user.interface";
-
 // Import repository
 import { UserRepository } from "../../../repository/user/user.repository";
 const userRepository = new UserRepository();
@@ -11,7 +8,7 @@ const userRepository = new UserRepository();
 /**
  * Serialize user
 */
-passport.serializeUser((user: IUserMongo, done) => {
+passport.serializeUser((user: any, done: any) => {
     done(null, user._id);
 });
 
