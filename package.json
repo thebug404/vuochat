@@ -7,7 +7,8 @@
     "serve": "nodemon dist/",
     "watch": "tsc -w",
     "build": "tsc",
-    "start": "npm run build && npm run webpack:b && node dist/",
+    "postinstall": "npm run build && npm run webpack:b",
+    "start": "node dist/",
     "webpack:b": "webpack"
   },
   "keywords": [],
