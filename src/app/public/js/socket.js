@@ -7,10 +7,12 @@ import "./bootstrap/bootstrap.bundle.min";
 // Import Postman
 import { Postman } from "./class/Postman";
 import { ChatUI } from "./class/Chat-UI";
-import { subscribe } from "./helpers/register";
 
-// We start the service worker and the notifications.
-subscribe();
+// Import service worker.
+import { SW } from "./class/SW";
+
+const sw = new SW();
+sw.sendSubcriptionServer();
 
 // Get DOM
 const form = document.getElementById("form-message");

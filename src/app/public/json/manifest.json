@@ -1,0 +1,24 @@
+{
+     "name": "Vuochat",
+     "short_name": "Vuochat",
+     "start_url": "/",
+     "lang": "es",
+     "description": "Vuochat, una app para comunicarte con el mundo.",
+     "display": "standalone",
+     "icons": [
+          {
+               "src": "/icons/logo32.png",
+               "sizes": "32x32"
+          },
+          {
+               "src": "/icons/logo64.png",
+               "sizes": "64x64"
+          },
+          {
+               "src": "/icons/logo128.png",
+               "sizes": "128x128"
+          }
+     ],
+     "background_color": "white",
+     "theme_color": "#0652DD"
+}

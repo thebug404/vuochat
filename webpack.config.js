@@ -20,6 +20,11 @@ module.exports = {
           sw: {
                import: path.join(__dirname, "src/app/public/js/sw.js"),
                filename: "sw.js"
+          },
+
+          manifest: {
+               import: path.join(__dirname, "src/app/public/json/manifest.json"),
+               filename: "manifest.json"
           }
      },
 

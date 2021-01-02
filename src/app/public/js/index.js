@@ -4,6 +4,10 @@ import "../css/styles.css";
 // Imports scripts
 import "./bootstrap/bootstrap.bundle.min";
 
+// Import install service worker
+import { subscribe } from "./helpers/register";
+subscribe();
+
 // Import validate form
 import { ValidateInput } from "./helpers/validators";
 
