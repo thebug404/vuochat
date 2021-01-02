@@ -8,6 +8,8 @@ import "./bootstrap/bootstrap.bundle.min";
 import { Postman } from "./class/Postman";
 import { ChatUI } from "./class/Chat-UI";
 
+import { logout } from "./helpers/logout";
+
 // Import service worker.
 import { SW } from "./class/SW";
 
@@ -35,4 +37,8 @@ form?.addEventListener("click", e => {
 
 window.addEventListener("load", () => {
      new ChatUI().scrollAutomatic();
+});
+
+document.getElementById("btn-logout").addEventListener("click", e => {
+     logout();
 });

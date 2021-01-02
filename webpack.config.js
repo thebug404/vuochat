@@ -45,6 +45,10 @@ module.exports = {
                     {
                          from: path.join(__dirname, "src/app/public/json/manifest.json"),
                          to: path.join(__dirname, "dist/app/public/manifest.json")
+                    },
+                    {
+                         from: path.join(__dirname, "src/app/public/pages"),
+                         to: path.join(__dirname, "dist/app/public/pages")
                     }
                ]
           })

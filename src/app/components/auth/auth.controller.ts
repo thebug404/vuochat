@@ -12,6 +12,8 @@ export class AuthController {
           req.logOut();
 
           // Redirec to login page
-          res.redirect("/login");
+          res.status(200).json({
+               text: "Successfully"
+          });
      }
 }

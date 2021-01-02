@@ -151,6 +151,6 @@ export class AuthRoutesComponent {
      * Method in charge of closing the user's session.
      */
     private logout(): void {
-        this.router.get("/auth/logout", authController.logout)
+        this.router.post("/auth/logout", authController.logout)
     }
 };
