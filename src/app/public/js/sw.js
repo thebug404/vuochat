@@ -1,5 +1,14 @@
-self.addEventListener("install", event => {
-     console.log("Service worker installed successfully");
+self.addEventListener("fetch", event => {
+     event.respondWith(
+          caches.match(event.request).then(res => {
+               return res || fetch(event.request).then(result => {
+                    return caches.open("VUOCHAT_CACHE").then(cache => {
+                         cache.put(event.request, result.clone());
+                         return result;
+                    })
+               })
+          })
+     );
 });
 
 self.addEventListener("push", event => {

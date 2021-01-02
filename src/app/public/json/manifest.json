@@ -1,7 +1,8 @@
 {
      "name": "Vuochat",
-     "short_name": "Vuochat",
-     "start_url": "/",
+     "short_name": "chat",
+     "start_url": "/?from=homescreen",
+     "prefer_related_applications": false,
      "lang": "es",
      "description": "Vuochat, una app para comunicarte con el mundo.",
      "display": "standalone",
