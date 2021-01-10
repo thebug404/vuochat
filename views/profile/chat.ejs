@@ -1,60 +1,63 @@
 <%- include("../layouts/profile-header.ejs"); %>
      <div class="container-fluid">
           <div class="card w-100 border-0">
-               <!-- Card body -->
-               <div class="card-body p-0 m-0">
-                    <div class="container-fluid">
-                         <div
-                              style="height: 60vh; overflow: auto;"
-                              id="box-messages"
-                              class="row"
-                         >
-                              <% if (chat) { %>
-                                   <% for (let message of chat.messages.reverse()) { %>
-                                        <% if (message.from == `${ user._id }`) { %>
-                                             <%- include("../components/message-card", {
-                                                  message: message,
-                                                  color: "bg-purple text-white",
-                                                  justify: "justify-content-end"
-                                             }) %>
-                                        <% } else { %>
-                                             <%- include("../components/message-card", {
-                                                  message: message,
-                                                  color: "",
-                                                  justify: ""
-                                             }) %>
+               <div class="col-12">
+                    <!-- Card body -->
+                    <div class="card-body p-0 m-0">
+                         <div class="container-fluid">
+                              <div
+                                   style="height: 70vh; overflow: auto;"
+                                   id="box-messages"
+                                   class="row"
+                              >
+                                   <% if (chat) { %>
+                                        <% for (let message of chat.messages.reverse()) { %>
+                                             <% if (message.from == `${ user._id }`) { %>
+                                                  <%- include("../components/message-card", {
+                                                       message: message,
+                                                       color: "bg-purple text-white",
+                                                       justify: "justify-content-end"
+                                                  }) %>
+                                             <% } else { %>
+                                                  <%- include("../components/message-card", {
+                                                       message: message,
+                                                       color: "",
+                                                       justify: ""
+                                                  }) %>
+                                             <% } %>
                                         <% } %>
                                    <% } %>
-                              <% } %>
+                              </div>
                          </div>
                     </div>
+                    <!-- #End card body -->
                </div>
-               <!-- #End card body -->
-
-               <!-- Card footer -->
-               <div class="card-footer border-0">
-                    <form id="form-message">
-                         <div class="d-flex justify-content-center align-items-center">
-                              <input type="hidden" value="<%= user._id %>" name="from" id="from">
-                              <input type="hidden" value="<%= partner._id %>" name="to" id="to">
-                              <div class="form-group m-0">
-                                   <textarea
-                                        placeholder="Escribe un mensaje"
-                                        class="form-control w-100"
-                                        id="message-input"
-                                        name="message"
-                                        rows="2"
-                                        autofocus
-                                   ></textarea>
+               <div class="col-12 align-self-end">
+                    <!-- Card footer -->
+                    <div class="card-footer border-0">
+                         <form id="form-message">
+                              <div class="d-flex justify-content-center align-items-center">
+                                   <input type="hidden" value="<%= user._id %>" name="from" id="from">
+                                   <input type="hidden" value="<%= partner._id %>" name="to" id="to">
+                                   <div class="form-group m-0">
+                                        <textarea
+                                             placeholder="Escribe un mensaje"
+                                             class="form-control w-100"
+                                             id="message-input"
+                                             name="message"
+                                             rows="2"
+                                             autofocus
+                                        ></textarea>
+                                   </div>
+                                   <button
+                                        type="submit"
+                                        class="btn btn-primary ms-3"
+                                   >Enviar</button>
                               </div>
-                              <button
-                                   type="submit"
-                                   class="btn btn-primary ms-3"
-                              >Enviar</button>
-                         </div>
-                    </form>
+                         </form>
+                    </div>
+                    <!-- #End card footer -->
                </div>
-               <!-- #End card footer -->
           </div>
      </div>
 <%- include("../layouts/profile-footer.ejs"); %>
