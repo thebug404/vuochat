@@ -26,9 +26,12 @@ self.addEventListener("fetch", event => {
 self.addEventListener("push", event => {
      const data = event.data.json();
 
-     self.registration.showNotification(data.title, {
-          body: data.body,
-          badge: "https://res.cloudinary.com/dlkfpx8lb/image/upload/v1610243107/vuochat/logo_hwaumf.svg",
-          icon: data.icon,
-     });
+     event.waitUntil(
+          self.registration.showNotification(data.title, {
+               body: data.body,
+               badge: "https://res.cloudinary.com/dlkfpx8lb/image/upload/v1610243107/vuochat/logo_hwaumf.svg",
+               icon: data.icon,
+               vibrate: [250,200,150,150,100,50,450,450,150,150,100,50,900,2250]
+          })
+     );
 });
