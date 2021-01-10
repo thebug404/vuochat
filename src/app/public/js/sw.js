@@ -25,11 +25,10 @@ self.addEventListener("fetch", event => {
 
 self.addEventListener("push", event => {
      const data = event.data.json();
-     const origin = event.currentTarget.location.origin;
 
      self.registration.showNotification(data.title, {
           body: data.body,
-          badge: `${ origin }${ data.badge }`,
+          badge: "https://res.cloudinary.com/dlkfpx8lb/image/upload/v1610243107/vuochat/logo_hwaumf.svg",
           icon: data.icon,
      });
 });
