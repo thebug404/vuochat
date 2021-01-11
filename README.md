@@ -8,7 +8,7 @@
 Vuochat is an instant messaging web application. It is developed in [Node.js](https://nodejs.org/es/)
 and [Typescript](https://www.staging-typescript.org). It incorporates authentication through social networks using 
 [Passport.js](http://www.passportjs.org), and real-time communication is possible thanks to [Socket.io](https://socket.io),
-conversations are stored in [MongoDB](https://www.mongodb.com/es). It also uses PWA as the installation of the Application and Push notifications.
+conversations are stored in [MongoDB](https://www.mongodb.com/es). It also uses **PWA** as the installation of the Application and **Push notifications**.
 If you want to know how it works, click here: [Vuochat](https://vuochat.herokuapp.com) or on the image.
 
 ## 1. Clone the project.
