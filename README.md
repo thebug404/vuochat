@@ -4,7 +4,10 @@
   </a>
 </p>
 
-# vuochat
+# Vuochat
+
+> **Note**: The project is currently in the development phase.
+
 Vuochat is an instant messaging web application. It is developed in [Node.js](https://nodejs.org/es/)
 and [Typescript](https://www.staging-typescript.org). It incorporates authentication through social networks using 
 [Passport.js](http://www.passportjs.org), and real-time communication is possible thanks to [Socket.io](https://socket.io),
